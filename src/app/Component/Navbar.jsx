@@ -23,7 +23,7 @@ const Navbar = () => {
           href="/destination"
           className="text-gray-900 hover:text-orange-500 hover:bg-orange-50 lg:hover:bg-transparent transition duration-300 font-medium px-3 py-2 rounded-xl lg:p-0 block"
         >
-          Destination
+         Add-Destination 
         </Navlink>
       </li>
 
@@ -38,10 +38,10 @@ const Navbar = () => {
 
       <li>
         <Navlink
-          href="/admin"
+          href="/all"
           className="text-gray-900 hover:text-orange-500 hover:bg-orange-50 lg:hover:bg-transparent transition duration-300 font-medium px-3 py-2 rounded-xl lg:p-0 block"
         >
-          Admin
+          Destination
         </Navlink>
       </li>
     </>
