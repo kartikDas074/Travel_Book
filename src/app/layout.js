@@ -6,6 +6,7 @@ const josefin = Josefin_Sans({
 })
 import "./globals.css";
 import Navbar from "./Component/Navbar";
+import Footer from "./Component/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,9 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
         <Navbar></Navbar>
-        {children}</body>
+        {children}
+        <Footer></Footer>
+        </body>
     </html>
   );
 }

@@ -1,5 +1,6 @@
 
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import { FaMapMarkerAlt, FaRegCalendarAlt } from 'react-icons/fa';
 import { FaArrowUpRightFromSquare } from 'react-icons/fa6';
@@ -55,10 +56,13 @@ const AllDestination = ({destination}) => {
 
         {/* Book Now Button */}
         <div className="flex items-center justify-between">
-          <button className="text-sky-500 font-bold text-sm tracking-wider uppercase inline-flex items-center gap-2 hover:text-sky-600 transition-colors border-b-2 border-transparent hover:border-sky-500 pb-0.5">
+            <Link href={`/all/${destination._id}`}>
+            <button className="text-sky-500 font-bold text-sm tracking-wider uppercase inline-flex items-center gap-2 hover:text-sky-600 transition-colors border-b-2 border-transparent hover:border-sky-500 pb-0.5">
             BOOK NOW
             <FaArrowUpRightFromSquare className="text-xs" />
           </button>
+            </Link>
+          
           
           {/* Departure Date (ছোট করে কর্নারে দেখানোর জন্য) */}
           <span className="text-[10px] text-gray-400 font-mono">
