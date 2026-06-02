@@ -1,7 +1,7 @@
 
 
 import AddDestination from '../Component/AddDestination';
-import { insertBook } from '../lib/Action';
+import { insertBook } from '../../lib/Action';
 
 const AddDestinationPage = () => {
    

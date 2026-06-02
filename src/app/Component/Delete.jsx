@@ -2,8 +2,7 @@
 
 import {AlertDialog, Button} from "@heroui/react";
 import { XCircle } from "lucide-react";
-import { DelDes } from "../lib/Action";
-
+import { DelDes } from "../../lib/Action";
 export function  DeleteDes({id,Del}) {
 
   return (

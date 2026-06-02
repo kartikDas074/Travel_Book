@@ -1,4 +1,4 @@
-import { DelDes, FeatchSingleDes, UpdateBokking } from '@/app/lib/Action';
+import { DelDes, FeatchSingleDes, UpdateBokking } from '@/lib/Action';
 import Image from 'next/image';
 import Link from 'next/link';
 import { MapPin, Calendar, Clock, Star, Check, Edit3, XCircle, ArrowRight } from 'lucide-react';

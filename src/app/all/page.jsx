@@ -1,5 +1,5 @@
 import React from 'react';
-import { FeatchDes } from '../lib/Action';
+import { FeatchDes } from '../../lib/Action';
 import AllDestination from '../Component/AllDestination';
 import { FaSearch } from 'react-icons/fa';
 
