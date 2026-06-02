@@ -1,26 +1,26 @@
-'use client'
-import Link from 'next/link';
-import React, { useState } from 'react';
+"use client";
+import { authClient } from "@/lib/auth-client";
+
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
-  const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    rememberMe: false
-  });
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? checked : value
-    });
-  };
-
-  const handleSubmit = (e) => {
+   const router = useRouter();
+  const handleSubmit = async (e) => {
     e.preventDefault();
-   
-    console.log("Login Data:", formData);
+    const datao = new FormData(e.target);
+    const formdata = Object.fromEntries(datao.entries());
+    const { data, error } = await authClient.signIn.email({
+      email: formdata.email,
+      password: formdata.password,
+      rememberMe: true
+    });
+
+    if(!error){
+      router.push('/');
+    }else{  
+      alert(error.message);
+    }
   };
 
   return (
@@ -35,7 +35,6 @@ const Login = () => {
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
-           
             <div className="form-control">
               <label className="label">
                 <span className="label-text font-medium">Email Address</span>
@@ -44,17 +43,18 @@ const Login = () => {
                 type="email"
                 name="email"
                 placeholder="Enter your email"
-                className="input input-bordered w-full focus:input-primary"
-                onChange={handleChange}
+                className="input input-bordered w-full focus:input-primary text-[#FFFFFF]"
                 required
               />
             </div>
 
-           
             <div className="form-control">
               <div className="flex justify-between items-center mb-1">
                 <label className="label-text font-medium">Password</label>
-                <a href="/forgot-password" className="text-xs link link-primary no-underline hover:underline">
+                <a
+                  href="/forgot-password"
+                  className="text-xs link link-primary no-underline hover:underline"
+                >
                   Forgot Password?
                 </a>
               </div>
@@ -62,41 +62,40 @@ const Login = () => {
                 type="password"
                 name="password"
                 placeholder="Enter your password"
-                className="input input-bordered w-full focus:input-primary"
-                onChange={handleChange}
+                className="input input-bordered w-full focus:input-primary text-[#FFFFFF]"
                 required
               />
             </div>
 
-          
             <div className="form-control">
               <label className="label cursor-pointer justify-start gap-2">
                 <input
                   type="checkbox"
                   name="rememberMe"
-                  className="checkbox checkbox-primary checkbox-sm rounded"
-                  checked={formData.rememberMe}
-                  onChange={handleChange}
+                  className="checkbox checkbox-primary checkbox-sm rounded text-[#FFFFFF]"
                 />
                 <span className="label-text text-sm">Remember me</span>
               </label>
             </div>
 
-          
             <div className="form-control mt-6">
-              <button type="submit" className="btn btn-primary w-full text-white normal-case text-lg">
+              <button
+                type="submit"
+                className="btn btn-primary w-full text-white normal-case text-lg"
+              >
                 Log In
               </button>
             </div>
           </form>
 
-         
           <div className="text-center mt-4 text-sm">
             <span>New here? </span>
-            <Link href="/signup" className="link link-primary font-medium no-underline hover:underline">
+            <Link
+              href="/signup"
+              className="link link-primary font-medium no-underline hover:underline"
+            >
               Create an Account
             </Link>
-            
           </div>
         </div>
       </div>
